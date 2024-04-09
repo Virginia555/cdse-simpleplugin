@@ -1,0 +1,13 @@
+.btn-submit {
+    background-color: #FA8072 !important; 
+    border-color: #FA8072 !important; 
+}
+a.btn-submit {
+    text-decoration: none;
+    color: black;
+}
+.btn-submit:hover,
+.btn-submit:focus {
+    background-color: #FF6347 !important;
+    border-color: #FF6347 !important;
+}

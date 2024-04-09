@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics Form</title>
+    <!-- Bootstrap link -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/metrics_style.css') }}">
+    <!-- Link to my date function to autocompile the date field-->
+    <script src="{{ url_for('static', filename='js/date.js') }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center;">Metrics</h1>
+        <form id="metricsForm" action="/submit_metrics" method="post">
+            <div class="form-group">
+                <label for="location"><b>Location:</b></label>
+                <input type="text" class="form-control" id="location" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="company"><b>Company:</b></label>
+                <input type="text" class="form-control" id="company" name="company" required>
+            </div>
+            <div class="form-group">
+                <label for="date"><b>Date:</b></label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="avgResponseTime"><b>Avg Response Time:</b></label>
+                <input type="number" class="form-control" id="avgResponseTime" name="avgResponseTime" value="{{results[0].metrics[0].value}}" required>
+            </div>
+            <div class="form-group">
+                <label for="peakResponseTime"><b>Peak Response Time:</b></label>
+                <input type="number" class="form-control" id="peakResponseTime" name="peakResponseTime" value="{{results[0].metrics[1].value}}" required>
+            </div>
+            <div class="form-group">
+                <label for="errorRate"><b>Error Rate:</b></label>
+                <input type="number" class="form-control" id="errorRate" name="errorRate" value="{{results[0].metrics[2].value}}" required>
+            </div>
+            <div class="form-group">
+                <label for="avgConcurrency"><b>Avg Concurrency:</b></label>
+                <input type="number" class="form-control" id="avgConcurrency" name="avgConcurrency" value="{{results[0].metrics[3].value}}" required>
+            </div>
+            <div class="form-group">
+                <label for="peakConcurrency"><b>Peak Concurrency:</b></label>
+                <input type="number" class="form-control" id="peakConcurrency" name="peakConcurrency" value="{{results[0].metrics[4].value}}" required>
+            </div>
+            <button id="submit-btn" type="submit" class="btn btn-submit">Submit</button>
+            <a href="/results" class="btn btn-submit">Back to Results</a>
+        </form>
+        <div style="height: 400px;"></div>
+    </div>
+    <!-- Links to bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

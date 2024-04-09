@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEEDTEST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}"></noscript>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip.css') }}">
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+        <div id="header">
+            <div class="inner">
+                <header>
+                    <h1>SPEEDTEST</h1>
+                    <hr />
+                    <p>Run Tests-ESACDAB</p>
+                </header>
+                <footer>
+                    <a href="#content" class="button circled scrolly">Start</a>
+                </footer>
+                
+                <header>
+                    <hr />
+                    <p>Or view other people results</p>
+                </header>
+                <footer>
+                    <a href="/history" class="button squared scrolly">History</a>
+                </footer>
+            </div>
+        </div>
+
+        <div id="content" class="container">
+            <form id = "testForm" action="/run_tests" method="post">
+                <div class="form-field">
+                    <label for="container_name" style="font-size: 35px;">Container Name:</label>
+                    <input type="text" id="container_name" name="container_name" required>
+                    <div class="test-options">
+                        <input type="checkbox" id="delete_container" name="delete_container" checked>
+                        <label class="checkbox-label" for="delete_container">Delete container after execution</label>
+                    </div>
+                </div>
+
+                <div class="test-options">
+                    <h2 style="font-size: 35px;">Select the Test Scenarios:</h2>
+                    <input type="checkbox" id="test_TS01" name="tests" value="TS01">
+                    <label class="checkbox-label" for="test_TS01">Test TS01</label>
+                    <div class="tooltip"><i class="icon solid fa-info-circle"></i>
+                        <span class="tooltiptext"> Simple data search and single download</span>
+                    </div>
+
+                    <input type="checkbox" id="test_TS02" name="tests" value="TS02">
+                    <label class="checkbox-label" for="test_TS02">Test TS02</label>
+                    <div class="tooltip"><i class="icon solid fa-info-circle"></i>
+                        <span class="tooltiptext"> Complex data search and bulk download</span>
+                    </div>
+
+                </div>
+                <div class="provider-options">
+                    <h2 style="font-size: 35px;">Select the Service Provider:</h2>
+                    <input type="checkbox" id="provider_cdse" name="providers" value="cdse">
+                    <label class="checkbox-label" for="provider_cdse">Provider CDSE</label>
+                </div>
+
+                <input type="submit" value="Run Tests" class="submit-btn">
+            </form>
+
+            <div id="testingMessage" style="display: none;">
+                <h3>Testing in progress...</h3>
+                <p>Please wait while the tests are being executed...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/myFunc.js') }}"></script>
+
+
+</body>
+</html>

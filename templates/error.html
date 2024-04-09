@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEEDTEST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}"></noscript>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+        <div id="header">
+            <div class="inner">
+                <header>
+                    <h1>SPEEDTEST</h1>
+                    <hr />
+                    {% if type == 'docker' %}                       
+                        <p>There is something wrong with Docker<br>Please make sure that Docker is installed and running on your device</p>
+                    {% elif type == 'form' %}
+                        <p>There is something wrong with your data<br>Please make sure to pick a valid container name and to select at least one Test Scenario and Provider</p>
+                    {% else %}
+                        <p>Something went wrong</p>
+                    {% endif %}
+                </header>
+                <footer>
+                    <a href="/" class="button circled scrolly">Go Back</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
