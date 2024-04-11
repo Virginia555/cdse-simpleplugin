@@ -1,4 +1,4 @@
-# CDAB Simple Plugin
+# CDSE Simple Plugin
 
 Welcome to the CDAB Simple Plugin repository. 
 
